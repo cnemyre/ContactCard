@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>Contact Card</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+  <link rel="stylesheet" href="ContactCard.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script type="text/javascript"></script>
+  <script>
+  $(document).ready(function(){
+
+    $("form").submit(function(){
+
+      $("#contact").append("<div class='contact_info well'>"+
+      "<h1 class='name'>" + $("#firstname").val() + " " + $("#lastname").val() +
+      "<br><small><Click for description</small></h1>"+
+      "<p class='description hidden'>" + $("#description").val() + "</p>"+
+      "</div>");
+      return false;
+    });
+  $("#contact").on("click", ".contactinfo", function(){
+    $(this).find('p.description').toggleClass("hidden");
+    $(this).find('h1.name').toggleClass("hidden");
+      });
+    })
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="info">
+      <h2 class="entertitle">Enter Contact Info:</h2>
+      <form>
+        <label for="firstname" class="label">First Name:</label>
+        <div class="group">
+          <input type="test" id="firstname"/>
+        </div>
+        <label for="lastname" class="label">Last Name:</label>
+        <div class="controls">
+          <input type="test" id="lastname"/>
+        </div>
+        <label for="description" class="label">Description:</label>
+        <div class="controls">
+          <textarea name="" id="description" cols="40" rows="10"></textarea>
+        </div>
+      <input type="submit" value="submit" class="btn btn-success"/>
+    </form>
+  </div>
+        <div id="contact" class="info">
+          <h2 id="contactheader">Contact Information</h2>
+        </div>
+      </div>
+    </body>
+  </html>
